@@ -1,8 +1,10 @@
+import java.time.temporal.Temporal;
+
 public class Moto extends Veiculo{
     private String marca;
     private int cilindradas;
 
-    public Moto(String placa, int tEntrada, String marca, int cilindradas){
+    public Moto(String placa, Temporal tEntrada, String marca, int cilindradas){
         super(placa, tEntrada);
         this.marca = marca;
         this.cilindradas = cilindradas;

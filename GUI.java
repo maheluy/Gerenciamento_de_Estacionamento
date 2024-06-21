@@ -7,7 +7,7 @@ public class GUI extends JFrame implements ActionListener {
     private JButton botaoInserirVeiculo; // insere um veiculo em uma vaga
     private JButton botaoRemoverVeiculo; // remove veiculo da vaga e efetiva pagamento
     private JButton botaoGerarRelatorio;
-    private JButton botaoReservarvaga;
+    private JButton botaoReservarVaga;
     private JButton botaoCadastrarCliente;
 
     public GUI(){
@@ -33,15 +33,15 @@ public class GUI extends JFrame implements ActionListener {
         botaoCadastrarCliente.setBounds(100,300,200,50);
         botaoCadastrarCliente.addActionListener(this);
 
-        botaoReservarvaga = new JButton("Reservar Vaga");
-        botaoReservarvaga.setBounds(100,375,200,50);
-        botaoReservarvaga.addActionListener(this);
+        botaoReservarVaga = new JButton("Reservar Vaga");
+        botaoReservarVaga.setBounds(100,375,200,50);
+        botaoReservarVaga.addActionListener(this);
 
         this.add(botaoInserirVeiculo);
         this.add(botaoRemoverVeiculo);
         this.add(botaoGerarRelatorio);
         this.add(botaoCadastrarCliente);
-        this.add(botaoReservarvaga);
+        this.add(botaoReservarVaga);
         this.setVisible(true);
     }
 
@@ -66,7 +66,7 @@ public class GUI extends JFrame implements ActionListener {
             // cria nova janela para cadastrar um cliente
             // usuario volta a janela principal
         }
-        if (e.getSource() == botaoReservarvaga){
+        if (e.getSource() == botaoReservarVaga){
             //cria nova janela para reservar uma vaga conforme regras e condicoes definidas
             // usuario volta a janela principal
         }
