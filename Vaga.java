@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Vaga {
     private int numero;
     private int localizacao;
@@ -6,6 +8,7 @@ public class Vaga {
     // 0 livre, 1 - ocupada, 2 - reservada
 
     private Veiculo tipo;
+    public static ArrayList<Vaga> estacionamento = new ArrayList<Vaga>();
 
     public Vaga(int numero, int localizacao, int status, Veiculo tipo) {
         this.numero = numero;
@@ -39,4 +42,33 @@ public class Vaga {
     public void setTipo(Veiculo tipo) {
         this.tipo = tipo;
     }
+
+    public static Vaga proximaVagaLivreParaCarro(ArrayList<Vaga> vagas) {
+        int i;
+        for (i = 0; i < vagas.size(); i++) {
+            if (vagas.get(i).getStatus() == 0 && vagas.get(i).getTipo() instanceof Carro){
+                return vagas.get(i);
+            }
+        }
+        return null;
+    }
+    public static Vaga proximaVagaLivreParaMoto(ArrayList<Vaga> vagas) {
+        int i;
+        for (i = 0; i < vagas.size(); i++) {
+            if (vagas.get(i).getStatus() == 0 && vagas.get(i).getTipo() instanceof Moto){
+                return vagas.get(i);
+            }
+        }
+        return null;
+    }
+    public static Vaga proximaVagaLivreParaCaminhao(ArrayList<Vaga> vagas){
+        int i;
+        for (i = 0; i < vagas.size(); i++){
+            if (vagas.get(i).getStatus() == 0 && vagas.get(i).getTipo() instanceof Caminhao){
+                return vagas.get(i);
+            }
+        }
+        return null;
+    }
+
 }

@@ -2,7 +2,7 @@ public abstract class Veiculo {
     protected int tEntrada; // tempo de entrada e saida para calculo do pagamento
     protected int tSaida;
     protected int valor; //pagamento associado ao veiculo
-    protected String local;
+    protected Vaga local;
 
     public Veiculo(){
     }
@@ -16,7 +16,7 @@ public abstract class Veiculo {
     public int getValor() {
         return this.valor;
     }
-    public String getLocal() {
+    public Vaga getLocal() {
         return this.local;
     }
 
@@ -29,7 +29,7 @@ public abstract class Veiculo {
     public void setValor(int valor) {
         this.valor = valor;
     }
-    public void setLocal(String local) {
+    public void setLocal(Vaga local) {
         this.local = local;
     }
 
