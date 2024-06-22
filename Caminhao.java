@@ -2,11 +2,12 @@ public class Caminhao extends Veiculo{
     private int cargaMax;
     private int comprimento;
 
-    public Caminhao(int cargaMax, int comprimento) {
-        super();
+    public Caminhao(int cargaMax, int comprimento, String placa) {
+        super(placa);
         this.cargaMax = cargaMax;
         this.comprimento = comprimento;
     }
+    public Caminhao(){}
 
     public int getCargaMax() {
         return this.cargaMax;

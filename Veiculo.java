@@ -3,7 +3,11 @@ public abstract class Veiculo {
     protected int tSaida;
     protected int valor; //pagamento associado ao veiculo
     protected Vaga local;
+    protected String placa;
 
+    public Veiculo(String placa){
+        this.placa = placa;
+    }
     public Veiculo(){
     }
 
@@ -19,6 +23,9 @@ public abstract class Veiculo {
     public Vaga getLocal() {
         return this.local;
     }
+    public String getPlaca() {
+        return this.placa;
+    }
 
     public void setTEntrada(int tEntrada) {
         this.tEntrada = tEntrada;
@@ -32,6 +39,8 @@ public abstract class Veiculo {
     public void setLocal(Vaga local) {
         this.local = local;
     }
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
 
 }
-

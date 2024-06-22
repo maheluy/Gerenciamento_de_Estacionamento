@@ -3,12 +3,13 @@ public class Carro extends Veiculo{
     private String cor;
     private String marca;
 
-    public Carro(String modelo, String cor, String marca) {
-        super();
+    public Carro(String modelo, String cor, String marca, String placa) {
+        super(placa);
         this.modelo = modelo;
         this.cor = cor;
         this.marca = marca;
     }
+    public Carro(){}
 
     public String getModelo() {
         return this.modelo;
@@ -29,7 +30,4 @@ public class Carro extends Veiculo{
     public void setMarca(String marca) {
         this.marca = marca;
     }
-}
-public class Carro extends Veiculo{
-    private String modelo;
 }

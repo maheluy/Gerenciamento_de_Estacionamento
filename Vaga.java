@@ -3,12 +3,11 @@ import java.util.ArrayList;
 public class Vaga {
     private int numero;
     private int localizacao;
-
+    private Veiculo tipo;
     private int status; //seria ideal um boolean, mas sao 3 estados
     // 0 livre, 1 - ocupada, 2 - reservada
 
-    private Veiculo tipo;
-    public static ArrayList<Vaga> estacionamento = new ArrayList<Vaga>();
+    public static ArrayList<Vaga> estacionamento = new ArrayList<Vaga>(); //array estatica para armazenar o estacionamento
 
     public Vaga(int numero, int localizacao, int status, Veiculo tipo) {
         this.numero = numero;
