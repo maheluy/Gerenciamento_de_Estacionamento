@@ -13,7 +13,7 @@ public class GUI extends JFrame implements ActionListener {
     public GUI(){
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(800, 600);
-        this.getContentPane().setBackground(new Color(255,0,0));
+        this.getContentPane().setBackground(new Color(0,0,255));
         this.setLayout(null);
         this.setTitle("Gerenciador de Estacionamento");
 
@@ -57,6 +57,8 @@ public class GUI extends JFrame implements ActionListener {
             // aqui cria uma nova janela para efetuar o pagamento
             // se efetivado, gerar recibo e remover veiculo
             // usuario volta a janela principal
+            this.dispose();
+            GUI_RemoverVeiculo guiRemoverVeiculo = new GUI_RemoverVeiculo();
         }
         if (e.getSource() == botaoGerarRelatorio){
             //aqui cria uma nova janela mostrando relatorio do estacionamento
