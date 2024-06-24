@@ -15,20 +15,20 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
     private JButton retornarPrincipal;
     private JButton estacionarCadastrado;
 
-    private JPanel addCarro;
+    private JPanel infoCarro;
     private JTextField carCor;
     private JTextField carModelo;
     private JTextField carMarca;
     private JTextField carPlaca;
     private JButton estacionarCarro;
 
-    private JPanel addMoto;
+    private JPanel infoMoto;
     private JTextField motoMarca;
     private JTextField motoCilindradas;
     private JTextField motoPlaca;
     private JButton estacionarMoto;
 
-    private JPanel addCaminhao;
+    private JPanel infoCaminhao;
     private JTextField caminhaoCarga;
     private JTextField caminhaoComprimento;
     private JTextField caminhaoPlaca;
@@ -47,14 +47,14 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
         this.getContentPane().setBackground(new Color(100,50,200));
         //this.setLayout(null);
 
-        addCarro = new JPanel();
-        addCarro.setBackground(new Color(100,100,200));
+        infoCarro = new JPanel();
+        infoCarro.setBackground(new Color(100,100,200));
 
-        addMoto = new JPanel();
-        addMoto.setBackground(new Color(100,70,200));
+        infoMoto = new JPanel();
+        infoMoto.setBackground(new Color(100,70,200));
 
-        addCaminhao = new JPanel();
-        addCaminhao.setBackground(new Color(100,0,200));
+        infoCaminhao = new JPanel();
+        infoCaminhao.setBackground(new Color(100,0,200));
 
         buttons = new JPanel();
         buttons.setBackground(new Color(100,100,200));
@@ -116,24 +116,24 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
         mensagem = new JLabel();
         mensagem.setBounds(100, 100, 70, 30);
 
-        addCarro.add(carCor);
-        addCarro.add(carMarca);
-        addCarro.add(carModelo);
-        addCarro.add(carPlaca);
-        addCarro.add(estacionarCarro);
-        addMoto.add(motoMarca);
-        addMoto.add(motoCilindradas);
-        addMoto.add(motoPlaca);
-        addMoto.add(estacionarMoto);
-        addCaminhao.add(caminhaoCarga);
-        addCaminhao.add(caminhaoComprimento);
-        addCaminhao.add(caminhaoPlaca);
-        addCaminhao.add(estacionarCaminhao);
+        infoCarro.add(carCor);
+        infoCarro.add(carMarca);
+        infoCarro.add(carModelo);
+        infoCarro.add(carPlaca);
+        infoCarro.add(estacionarCarro);
+        infoMoto.add(motoMarca);
+        infoMoto.add(motoCilindradas);
+        infoMoto.add(motoPlaca);
+        infoMoto.add(estacionarMoto);
+        infoCaminhao.add(caminhaoCarga);
+        infoCaminhao.add(caminhaoComprimento);
+        infoCaminhao.add(caminhaoPlaca);
+        infoCaminhao.add(estacionarCaminhao);
         buttons.add(retornarPrincipal);
         buttons.add(estacionarCadastrado);
-        this.add(addCarro);
-        this.add(addMoto);
-        this.add(addCaminhao);
+        this.add(infoCarro);
+        this.add(infoMoto);
+        this.add(infoCaminhao);
         this.add(buttons);
 
         this.setVisible(true);
@@ -157,9 +157,9 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
                 GUI gui = new GUI();
             } else {
                 mensagem.setText("Nenhuma vaga livre");
-                addCarro.add(mensagem);
-                addCarro.setVisible(false);
-                addCarro.setVisible(true);
+                infoCarro.add(mensagem);
+                infoCarro.setVisible(false);
+                infoCarro.setVisible(true);
             }
 
         }
@@ -176,15 +176,15 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
                     GUI gui = new GUI();
                 } else {
                     mensagem.setText("Nenhuma vaga livre");
-                    addMoto.add(mensagem);
-                    addMoto.setVisible(false);
-                    addMoto.setVisible(true);
+                    infoMoto.add(mensagem);
+                    infoMoto.setVisible(false);
+                    infoMoto.setVisible(true);
                 }
             } catch (NumberFormatException o) {
                 mensagem.setText("Texto Invalido");
-                addMoto.add(mensagem);
-                addMoto.setVisible(false);
-                addMoto.setVisible(true);
+                infoMoto.add(mensagem);
+                infoMoto.setVisible(false);
+                infoMoto.setVisible(true);
             }
 
         }
@@ -202,15 +202,15 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
                     GUI gui = new GUI();
                 } else {
                     mensagem.setText("Nenhuma vaga livre");
-                    addCaminhao.add(mensagem);
-                    addCaminhao.setVisible(false);
-                    addCaminhao.setVisible(true);
+                    infoCaminhao.add(mensagem);
+                    infoCaminhao.setVisible(false);
+                    infoCaminhao.setVisible(true);
                 }
             } catch (NumberFormatException o) {
                 mensagem.setText("Texto Invalido");
-                addCaminhao.add(mensagem);
-                addCaminhao.setVisible(false);
-                addCaminhao.setVisible(true);
+                infoCaminhao.add(mensagem);
+                infoCaminhao.setVisible(false);
+                infoCaminhao.setVisible(true);
             }
         }
 
@@ -226,9 +226,9 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
             estacionarCliente = new JButton("Procurar e estacionar");
             estacionarCliente.addActionListener(this);
 
-            this.remove(addCarro);
-            this.remove(addMoto);
-            this.remove(addCaminhao);
+            this.remove(infoCarro);
+            this.remove(infoMoto);
+            this.remove(infoCaminhao);
             this.remove(buttons);
             this.add(emailCliente);
             this.add(veiculoCliente);
@@ -238,21 +238,17 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
             this.setVisible(true);
         }
         if (e.getSource() == estacionarCliente) {
-            Cliente proprietario;
             Veiculo cadastrado;
             String email = emailCliente.getText();
             String placa = veiculoCliente.getText();
-            boolean status = false;
             int i;
             Vaga vaga = null;
 
-            for (i = 0; i < GUI_CadastrarCliente.clientes.size() && !status; i++){
-                if (email.equals(GUI_CadastrarCliente.clientes.get(i).getEmail())){
-                    proprietario = GUI_CadastrarCliente.clientes.get(i);// proprietario encontrado
-                    for (i = 0; i < proprietario.numVeiculos() && !status; i++){ //busca pelo veiculo
-                        if (placa.equals(proprietario.getVeiculo(i).getPlaca())){
-                            status = true;
-                            cadastrado = proprietario.getVeiculo(i); // veiculo encontrado
+            for (Cliente cliente : GUI_CadastrarCliente.clientes){
+                if (email.equals(cliente.getEmail())){// proprietario encontrado
+                    for (i = 0; i < cliente.numVeiculos(); i++){ //busca pelo veiculo
+                        if (placa.equals(cliente.getVeiculo(i).getPlaca())){
+                            cadastrado = cliente.getVeiculo(i); // veiculo encontrado
                             if (cadastrado instanceof Carro){
                                 vaga = Vaga.proximaVagaLivreParaCarro(Vaga.estacionamento);
                             }

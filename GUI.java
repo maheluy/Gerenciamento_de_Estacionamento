@@ -65,6 +65,8 @@ public class GUI extends JFrame implements ActionListener {
             //usuario volta a janela principal
         }
         if (e.getSource() == botaoCadastrarCliente){
+            this.dispose();
+            GUI_CadastrarCliente guiCadastrarCliente = new GUI_CadastrarCliente();
             // cria nova janela para cadastrar um cliente
             // usuario volta a janela principal
         }
