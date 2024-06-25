@@ -63,6 +63,8 @@ public class GUI extends JFrame implements ActionListener {
         if (e.getSource() == botaoGerarRelatorio){
             //aqui cria uma nova janela mostrando relatorio do estacionamento
             //usuario volta a janela principal
+            Relatorio r = new Relatorio();
+            r.gerarRelatorio();
         }
         if (e.getSource() == botaoCadastrarCliente){
             this.dispose();

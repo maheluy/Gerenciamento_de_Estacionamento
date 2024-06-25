@@ -216,7 +216,7 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
 
         if (e.getSource() == estacionarCadastrado) {
             emailCliente = new JTextField();
-            emailCliente.setText("Nome do proprietario");
+            emailCliente.setText("Email do proprietario");
             emailCliente.setPreferredSize(new Dimension(100, 30));
 
             veiculoCliente = new JTextField();
@@ -243,6 +243,7 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
             String placa = veiculoCliente.getText();
             int i;
             Vaga vaga = null;
+            boolean status = false;
 
             for (Cliente cliente : GUI_CadastrarCliente.clientes){
                 if (email.equals(cliente.getEmail())){// proprietario encontrado
@@ -263,6 +264,7 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
                                 cadastrado.setLocal(vaga);
                                 veiculosCadastradosEstacionados.add(cadastrado);
 
+                                status = true;
                                 this.dispose();
                                 GUI gui = new GUI();
                             }
@@ -270,10 +272,12 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
                     }
                 }
             }
-            mensagem.setText("Nao encontrado! Revise o email e placa");
-            this.add(mensagem);
-            this.setVisible(false);
-            this.setVisible(true);
+            if (!status){
+                mensagem.setText("Nao encontrado! Revise o email e placa");
+                this.add(mensagem);
+                this.setVisible(false);
+                this.setVisible(true);
+            }
         }
     }
 }
