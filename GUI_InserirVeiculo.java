@@ -47,7 +47,6 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
         this.setSize(800, 600);
         this.setLayout(new GridLayout(4, 0, 0, 50));
         this.getContentPane().setBackground(new Color(100,50,200));
-        //this.setLayout(null);
 
         infoCarro = new JPanel();
         infoCarro.setBackground(new Color(100,100,200));

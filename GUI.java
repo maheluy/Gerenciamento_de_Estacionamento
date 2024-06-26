@@ -65,6 +65,9 @@ public class GUI extends JFrame implements ActionListener {
             //usuario volta a janela principal
             Relatorio r = new Relatorio();
             r.gerarRelatorio();
+
+            this.dispose();
+            GUI_Relatorio guiRelatorio = new GUI_Relatorio();
         }
         if (e.getSource() == botaoCadastrarCliente){
             this.dispose();
