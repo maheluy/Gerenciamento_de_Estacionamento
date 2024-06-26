@@ -1,3 +1,5 @@
+import java.time.temporal.Temporal;
+
 public class Carro extends Veiculo{
     private String modelo;
     private String cor;
@@ -10,6 +12,13 @@ public class Carro extends Veiculo{
         this.marca = marca;
     }
     public Carro(){}
+
+    public Carro(String modelo, String cor, String marca, String placa, Temporal TEntrada) {
+        super(placa, TEntrada);
+        this.modelo = modelo;
+        this.cor = cor;
+        this.marca = marca;
+    }
 
     public String getModelo() {
         return this.modelo;

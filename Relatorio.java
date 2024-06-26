@@ -32,12 +32,12 @@ public class Relatorio {
                     output.print("Localizacao: " + vaga.getLocalizacao() + "; Numero: " + vaga.getNumero() + "; Ocupada:");
                     for (Veiculo veiculo : GUI_InserirVeiculo.veiculosNaoCadastradosEstacionados) {
                         if (veiculo.local == vaga) {
-                            output.println(veiculo.getPlaca());
+                            output.println(veiculo.getPlaca() + veiculo.getTEntrada());
                         }
                     }
                     for (Veiculo veiculo : GUI_InserirVeiculo.veiculosCadastradosEstacionados) {
                         if (veiculo.local == vaga) {
-                            output.println(veiculo.getPlaca());
+                            output.println(veiculo.getPlaca() + veiculo.getTEntrada());
                         }
                     }
                 } //else if (vaga.getStatus() == 2) { // vaga reservada
@@ -53,7 +53,10 @@ public class Relatorio {
                 }
             }
 
-            // adicionar historico de todos os pagamentos ja feitos como historico do estacionamento
+            for (Pagamento pagamento : Pagamento.pagamentos){
+                output.println("Veiculo: " + pagamento.getVeiculo().getPlaca() + "; Valor pago: " + pagamento.getValor() +
+                        "Horario de entrada: " + pagamento.getVeiculo().getTEntrada());
+            }
         }
 
         input.close();

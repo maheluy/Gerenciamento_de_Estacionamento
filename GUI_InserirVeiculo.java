@@ -2,7 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.time.temporal.*;
 
 import static java.lang.Integer.parseInt;
 
@@ -146,7 +148,7 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
             GUI gui = new GUI();
         }
         if (e.getSource() == estacionarCarro) {
-            Carro novo = new Carro(carModelo.getText(), carCor.getText(), carMarca.getText(), carPlaca.getText());
+            Carro novo = new Carro(carModelo.getText(), carCor.getText(), carMarca.getText(), carPlaca.getText(), LocalTime.now());
             Vaga vaga = Vaga.proximaVagaLivreParaCarro(Vaga.estacionamento);
             if (vaga != null){
                 vaga.setStatus(1); // vaga ocupada
@@ -165,7 +167,7 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
         }
         if (e.getSource() == estacionarMoto) {
             try {
-                Moto novo = new Moto(motoMarca.getText(), parseInt(motoCilindradas.getText()), motoPlaca.getText());
+                Moto novo = new Moto(motoMarca.getText(), parseInt(motoCilindradas.getText()), motoPlaca.getText(), LocalTime.now());
                 Vaga vaga = Vaga.proximaVagaLivreParaMoto(Vaga.estacionamento);
                 if (vaga != null) {
                     vaga.setStatus(1); // vaga ocupada
@@ -190,7 +192,7 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
         }
         if (e.getSource() == estacionarCaminhao) {
             try {
-                Caminhao novo = new Caminhao(parseInt(caminhaoCarga.getText()), parseInt(caminhaoComprimento.getText()), caminhaoPlaca.getText());
+                Caminhao novo = new Caminhao(parseInt(caminhaoCarga.getText()), parseInt(caminhaoComprimento.getText()), caminhaoPlaca.getText(), LocalTime.now());
 
                 Vaga vaga = Vaga.proximaVagaLivreParaCaminhao(Vaga.estacionamento);
                 if (vaga != null){
@@ -260,6 +262,7 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
                                 vaga = Vaga.proximaVagaLivreParaCaminhao(Vaga.estacionamento);
                             }
                             if (vaga != null){
+                                cadastrado.setTEntrada(LocalTime.now());
                                 vaga.setStatus(1);
                                 cadastrado.setLocal(vaga);
                                 veiculosCadastradosEstacionados.add(cadastrado);

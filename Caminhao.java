@@ -1,3 +1,5 @@
+import java.time.temporal.Temporal;
+
 public class Caminhao extends Veiculo{
     private int cargaMax;
     private int comprimento;
@@ -8,6 +10,12 @@ public class Caminhao extends Veiculo{
         this.comprimento = comprimento;
     }
     public Caminhao(){}
+
+    public Caminhao(int cargaMax, int comprimento, String placa, Temporal TEntrada) {
+        super(placa, TEntrada);
+        this.cargaMax = cargaMax;
+        this.comprimento = comprimento;
+    }
 
     public int getCargaMax() {
         return this.cargaMax;

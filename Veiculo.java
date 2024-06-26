@@ -1,20 +1,26 @@
+import java.time.temporal.Temporal;
+
 public abstract class Veiculo {
-    protected int tEntrada; // tempo de entrada e saida para calculo do pagamento
-    protected int tSaida;
+    protected Temporal tEntrada; // tempo de entrada e saida para calculo do pagamento
+    protected Temporal tSaida;
     protected int valor; //pagamento associado ao veiculo
     protected Vaga local;
     protected String placa;
 
-    public Veiculo(String placa){
+    public Veiculo(String placa){ // para cadastrar
         this.placa = placa;
     }
     public Veiculo(){
     }
+    public Veiculo(String placa, Temporal tEntrada){ // para estacionar
+        this.placa = placa;
+        this.tEntrada = tEntrada;
+    }
 
-    public int getTEntrada() {
+    public Temporal getTEntrada() {
         return this.tEntrada;
     }
-    public int getTSaida() {
+    public Temporal getTSaida() {
         return this.tSaida;
     }
     public int getValor() {
@@ -27,10 +33,10 @@ public abstract class Veiculo {
         return this.placa;
     }
 
-    public void setTEntrada(int tEntrada) {
+    public void setTEntrada(Temporal tEntrada) {
         this.tEntrada = tEntrada;
     }
-    public void setTSaida(int tSaida) {
+    public void setTSaida(Temporal tSaida) {
         this.tSaida = tSaida;
     }
     public void setValor(int valor) {
