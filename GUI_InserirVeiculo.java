@@ -64,7 +64,7 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
         retornarPrincipal = new JButton("<<Voltar");
         retornarPrincipal.addActionListener(this);
 
-        estacionarCadastrado = new JButton("Estacionar Veiculo Cadastrado");
+        estacionarCadastrado = new JButton("Estacionar Veiculo Reservado");
         estacionarCadastrado.addActionListener(this);
 
         carCor = new JTextField();
@@ -239,36 +239,25 @@ public class GUI_InserirVeiculo extends JFrame implements ActionListener {
             this.setVisible(true);
         }
         if (e.getSource() == estacionarCliente) {
-            Veiculo cadastrado;
             String email = emailCliente.getText();
             String placa = veiculoCliente.getText();
-            int i;
-            Vaga vaga = null;
             boolean status = false;
 
             for (Cliente cliente : GUI_CadastrarCliente.clientes){
                 if (email.equals(cliente.getEmail())){// proprietario encontrado
-                    for (i = 0; i < cliente.numVeiculos(); i++){ //busca pelo veiculo
-                        if (placa.equals(cliente.getVeiculo(i).getPlaca())){
-                            cadastrado = cliente.getVeiculo(i); // veiculo encontrado
-                            if (cadastrado instanceof Carro){
-                                vaga = Vaga.proximaVagaLivreParaCarro(Vaga.estacionamento);
-                            }
-                            else if (cadastrado instanceof Moto){
-                                vaga = Vaga.proximaVagaLivreParaMoto(Vaga.estacionamento);
-                            }
-                            else if (cadastrado instanceof Caminhao){
-                                vaga = Vaga.proximaVagaLivreParaCaminhao(Vaga.estacionamento);
-                            }
-                            if (vaga != null){
-                                cadastrado.setTEntrada(LocalTime.now());
-                                vaga.setStatus(1);
-                                cadastrado.setLocal(vaga);
-                                veiculosCadastradosEstacionados.add(cadastrado);
+                    for (Veiculo cadastrado : GUI_Reservar.reservados){ //busca pelo veiculo
+                        if (placa.equals(cadastrado.getPlaca())){ // veiculo encontrado
+                            for (Vaga vaga : Vaga.estacionamento){
+                                if (vaga.getStatus() == 2 && cadastrado.local == vaga){
+                                    cadastrado.setTEntrada(LocalTime.now());
+                                    vaga.setStatus(1);
+                                    cadastrado.setLocal(vaga);
+                                    veiculosCadastradosEstacionados.add(cadastrado);
 
-                                status = true;
-                                this.dispose();
-                                GUI gui = new GUI();
+                                    status = true;
+                                    this.dispose();
+                                    GUI gui = new GUI();
+                                }
                             }
                         }
                     }

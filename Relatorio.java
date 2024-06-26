@@ -40,10 +40,16 @@ public class Relatorio {
                             output.println(veiculo.getPlaca() + veiculo.getTEntrada());
                         }
                     }
-                } //else if (vaga.getStatus() == 2) { // vaga reservada
-//                    // informar dados da vaga
-//                    // buscar entre veiculos reservados aquele destinado a essa vaga e mostrar placa
-//                }
+                } else if (vaga.getStatus() == 2) { // vaga reservada
+                    output.print("Localizacao: " + vaga.getLocalizacao() + "; Numero: " + vaga.getNumero() + "; Reservada");
+                    for (Veiculo veiculo : GUI_Reservar.reservados){
+                        if (veiculo.getLocal() == vaga){
+                            output.println(veiculo.getPlaca());
+                        }
+                    }
+                    // informar dados da vaga
+                    // buscar entre veiculos reservados aquele destinado a essa vaga e mostrar placa
+                }
             }
             output.printf("\n\nClientes cadastrados:\n");
             for (Cliente cliente : GUI_CadastrarCliente.clientes){
@@ -63,6 +69,5 @@ public class Relatorio {
         output.close();
     }
 }
-
 
 

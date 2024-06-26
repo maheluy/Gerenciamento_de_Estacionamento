@@ -78,6 +78,8 @@ public class GUI extends JFrame implements ActionListener {
         if (e.getSource() == botaoReservarvaga){
             //cria nova janela para reservar uma vaga conforme regras e condicoes definidas
             // usuario volta a janela principal
+            this.dispose();
+            GUI_Reservar guiReservar = new GUI_Reservar();
         }
     }
 }
